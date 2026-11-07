@@ -50,9 +50,9 @@ export default function Painel() {
       <PageHead titulo="Painel" sub="Visão do pátio e do caixa, atualizada a cada movimento." />
       <section class="kpis">
         <Kpi l="No pátio agora" v={String(emCurso().length)} d={`${atrasadas().length} com entrega atrasada`} tone={atrasadas().length ? "warn" : ""} />
-        <Kpi l="Orçamentos abertos" v={String(orcs().length)} d={brl(orcs().reduce((a, o) => a + totalOS(o), 0)) + " em jogo"} />
+        <Kpi l="Orçamentos abertos" v={String(orcs().length)} d={`${brl(orcs().reduce((a, o) => a + totalOS(o), 0))} em jogo · ${taxa()}% de aprovação`} />
         <Kpi l="Faturado no mês" v={brl(faturadoMes())} d="OS entregues" tone="ok" />
-        <Kpi l="Ticket médio" v={brl(ticket())} d={`${taxa()}% dos orçamentos aprovados`} />
+        <Kpi l="Ticket médio" v={brl(ticket())} d={`média de ${entregues().length} OS entregues`} />
       </section>
 
       <section class="grid2">
